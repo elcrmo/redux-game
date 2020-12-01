@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
-import Head from './head'
-// import wave from '../assets/images/wave.jpg'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
-  const [counter, setCounterNew] = useState(0)
-
+  const array = useSelector((s) => s.game.grid)
+  const cols = useSelector((s) => s.game.cols)
   return (
-    <div>
-      <Head title="Hello" />
-      <img alt="wave" src="images/wave.jpg" />
-      <button type="button" onClick={() => setCounterNew(counter + 1)}>
-        updateCounter
-      </button>
-      <div> Hello World Dashboard {counter} </div>
+    <div className="flex justify-center items-center h-screen">
+      <div className="flex flex-wrap" style={{width: `${cols * 5}rem`}}>
+        {array.map((cell) => {
+          return (
+            <div key={`${cell}`} className={`m-2 w-16 h-16 rounded-full bg-${cell.color}-400`}>
+              {/* 0 */}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
