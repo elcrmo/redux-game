@@ -15,7 +15,6 @@ const Home = () => {
     }
   }, [])
 
-
   // useEffect(() => {
   //   setInterval(() => {
   //     dispatch(redCircle())
