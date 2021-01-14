@@ -15,10 +15,10 @@ const Main = () => {
   const onChange = (e) => {
     const regExp = /^\d+$/gm
     if (regExp.test(e.target.value)) {
-      if (e.target.id === "rows-id") {
+      if (e.target.id === 'rows-id') {
         setRows(e.target.value)
       }
-      if (e.target.id === "cols-id") {
+      if (e.target.id === 'cols-id') {
         setCols(e.target.value)
       }
     }
