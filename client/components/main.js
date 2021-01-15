@@ -9,12 +9,14 @@ const Main = () => {
   const [cols, setCols] = useState('')
   const dispatch = useDispatch()
   const onClick = () => {
-    dispatch(setGrid(rows, cols))
-    history.push('/field')
+    if (rows !== '' && cols !== '') {
+      dispatch(setGrid(rows, cols))
+      history.push('/game')
+    }
   }
   const onChange = (e) => {
     const regExp = /^\d+$/gm
-    if (regExp.test(e.target.value)) {
+    if (regExp.test(e.target.value) || e.target.value === '') {
       if (e.target.id === 'rows-id') {
         setRows(e.target.value)
       }
@@ -26,7 +28,7 @@ const Main = () => {
   return (
     <div>
       <Head title="Hello" />
-      <div className="flex items-center justify-center h-screen">
+      <div className="flex flex-col items-center justify-center h-screen">
         <div className="bg-orange-600 text-white font-bold rounded-lg border shadow-lg p-6">
           <div className="text-black">
             <input
@@ -57,6 +59,19 @@ const Main = () => {
               Start
             </button>
           </div>
+        </div>
+        <p className="text-2xl">Game rules:</p>
+        <div>
+          <ol className="list-decimal">
+            <li>Choose number of vertical and horizontal lines</li>
+            <li>
+              Press <span className="font-semibold">Start</span>
+            </li>
+            <li>Click on the circle when it turnes yellow</li>
+            <li>If you managed to click on the circle during 1 sec, it turnes green</li>
+            <li>Click untill half of the circles on the field turnes green</li>
+            <li>You win!</li>
+          </ol>
         </div>
       </div>
     </div>
