@@ -11,8 +11,8 @@ const Main = () => {
   const onClick = () => {
     if (rows !== '' && cols !== '') {
       dispatch(setGrid(rows, cols))
-      history.push('/game')
     }
+    history.push('/game')
   }
   const onChange = (e) => {
     const regExp = /^\d+$/gm
