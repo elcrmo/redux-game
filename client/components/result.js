@@ -11,19 +11,17 @@ const Result = () => {
     history.push('/')
   }
   return (
-    <div>
-      <div className="bg-orange-600 text-white font-bold rounded-lg border shadow-lg p-10 opacity-100">
-        <div className="flex justify-center text-3xl pb-1">{status}</div>
-        <div className="flex justify-center">green: {cells.green}</div>
-        <div className="flex justify-center">red: {cells.red}</div>
-        <button
-          type="button"
-          onClick={Back}
-          className="flex justify-center shadow rounded bg-orange-900 hover:bg-orange-800 m-2 px-4 py-2 font-bold"
-        >
-          Play Again
-        </button>
-      </div>
+    <div className="bg-orange-600 text-white font-bold rounded-lg border shadow-lg p-10">
+      <div className="flex justify-center text-3xl pb-1">{status}</div>
+      <div className="flex justify-center">green: {cells.green}</div>
+      <div className="flex justify-center">red: {cells.red}</div>
+      <button
+        type="button"
+        onClick={Back}
+        className="flex justify-center shadow rounded bg-orange-900 hover:bg-orange-800 m-2 px-4 py-2 font-bold"
+      >
+        Play Again
+      </button>
     </div>
   )
 }

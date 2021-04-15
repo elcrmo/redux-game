@@ -13,27 +13,25 @@ const Game = () => {
     }
   }, [])
   return (
-    <div>
-      <div className="flex justify-center items-center h-screen">
-        <div className="flex flex-wrap" style={{ width: `${cols * 5}rem` }}>
-          {grid.map((cell, index) => {
-            return (
-              <button
-                key={`${cell}${index}`}
-                id={`${cell.id}`}
-                type="button"
-                className={`m-2 w-16 h-16 rounded-full bg-${cell.color}-400`}
-                onClick={() => dispatch(toGreen(cell.id))}
-              />
-            )
-          })}
-        </div>
-        {status !== 'in progress' && (
-          <div className="absolute w-screen h-screen opacity-80 top-0 left-0 flex items-center justify-center">
-            <Result />
-          </div>
-        )}
+    <div className="bg-orange-600 flex justify-center items-center h-screen">
+      <div className="flex flex-wrap" style={{ width: `${cols * 5}rem` }}>
+        {grid.map((cell, index) => {
+          return (
+            <button
+              key={`${cell}${index}`}
+              id={`${cell.id}`}
+              type="button"
+              className={`m-2 w-16 h-16 rounded-full bg-${cell.color}-400`}
+              onClick={() => dispatch(toGreen(cell.id))}
+            />
+          )
+        })}
       </div>
+      {status !== 'in progress' && (
+        <div className="absolute w-screen h-screen opacity-80 top-0 left-0 flex items-center justify-center">
+          <Result />
+        </div>
+      )}
     </div>
   )
 }
